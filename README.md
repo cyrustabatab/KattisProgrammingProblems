@@ -1,0 +1,1 @@
+# Kattis Programming Practices
