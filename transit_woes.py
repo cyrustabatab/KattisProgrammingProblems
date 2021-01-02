@@ -18,13 +18,12 @@ def transit():
 
     for walk_time,bus_ride_time,bus_interval in zip(walk_times,bus_ride_times,bus_intervals):
         time += walk_time
-        if time % bus_interval:
-            time += bus_ride_time
-        else:
-            time += (time // bus_interval + 1) * bus_interval - time
+        if time % bus_interval != 0:
+            time = (time // bus_interval + 1) * bus_interval
+        time += bus_ride_time
 
     
-    time += list(walk_times)[-1]
+    time += walk_times[-1]
 
     if time <= t:
         print('yes')
@@ -46,18 +45,3 @@ transit()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-transit()
